@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {BreakpointObserver} from '@angular/cdk/layout';
+import {RouteService} from '../../services/route.service';
+import {RouteInfo} from '../../services/route.info';
+
+
 
 @Component({
   selector: 'app-sidebar',
@@ -6,10 +11,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.sass']
 })
 export class SidebarComponent implements OnInit {
+  private menuItems: RouteInfo[];
+  private isMobileMenu: boolean;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private breakpointObserver: BreakpointObserver) {
   }
 
+  ngOnInit() {
+    this.menuItems = RouteService.routes.filter(menuItem => menuItem);
+    this.isMobileMenu = this.breakpointObserver.isMatched('(max-width: 991px)');
+    this.breakpointObserver.observe([
+      '(max-width: 991px)'
+    ]).subscribe(result => {
+      this.isMobileMenu = result.matches;
+    });
+  }
 }

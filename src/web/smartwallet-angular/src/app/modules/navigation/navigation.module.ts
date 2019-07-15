@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {NavbarComponent} from './components/navbar/navbar.component';
+import {SidebarComponent} from './components/sidebar/sidebar.component';
+import {RouterModule} from '@angular/router';
+import {BsDropdownModule} from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [NavbarComponent, SidebarComponent],
@@ -12,7 +12,11 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     NavbarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
+
+    BsDropdownModule.forRoot()
   ]
 })
-export class NavigationModule { }
+export class NavigationModule {
+}
