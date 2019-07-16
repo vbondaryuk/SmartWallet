@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import {AuthGuard} from './guards/app.gurd';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   {path: '', loadChildren: () => import('./modules/layout/layout.module').then(m => m.LayoutModule), canActivate: [AuthGuard]},
   {path: 'auth', loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule)},
   {path: '**', redirectTo: 'dashboard', pathMatch: 'full'}
