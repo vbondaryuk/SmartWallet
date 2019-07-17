@@ -11,11 +11,11 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 
 export class LoginComponent implements OnInit {
-  private userLogin: UserLogin = {email: '', password: ''};
-  private submitted = false;
-  private loading = false;
-  private returnUrl: string;
-  private error: string;
+  userLogin: UserLogin = {email: '', password: ''};
+  submitted = false;
+  loading = false;
+  returnUrl: string;
+  error: string;
 
   constructor(
     private authenticationService: AuthenticationService,

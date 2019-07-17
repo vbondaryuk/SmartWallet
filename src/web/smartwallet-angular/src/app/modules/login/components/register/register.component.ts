@@ -10,11 +10,11 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  private userRegistration: UserRegistration = {email: '', password: '', firstName: '', lastName: ''};
-  private submitted = false;
-  private loading = false;
-  private returnUrl: string;
-  private error: string;
+  userRegistration: UserRegistration = {email: '', password: '', firstName: '', lastName: ''};
+  submitted = false;
+  loading = false;
+  returnUrl: string;
+  error: string;
 
   constructor(
     private authenticationService: AuthenticationService,

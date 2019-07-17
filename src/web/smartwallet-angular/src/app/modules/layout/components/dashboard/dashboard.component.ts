@@ -8,7 +8,7 @@ import {TabsetComponent} from 'ngx-bootstrap';
 })
 export class DashboardComponent implements OnInit {
   @ViewChild('tasksTab', { static: false }) taskTabs: TabsetComponent;
-  private selectedTaskTabIndex = 0;
+  selectedTaskTabIndex = 0;
 
   constructor() { }
 

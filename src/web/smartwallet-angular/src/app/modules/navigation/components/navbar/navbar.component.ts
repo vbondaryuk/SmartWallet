@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  private sidebarToggle() {
+  sidebarToggle() {
     if (this.sidebarVisible) {
       this.sidebarClose();
     } else {
@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  private getTitle() {
+  getTitle() {
     const title = this.location.prepareExternalUrl(this.location.path());
     const routeInfo = RouteService.routes.find(x => x.path === title);
     if (routeInfo) {

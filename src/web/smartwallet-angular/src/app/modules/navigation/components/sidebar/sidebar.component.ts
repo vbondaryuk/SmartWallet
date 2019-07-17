@@ -11,8 +11,8 @@ import {RouteInfo} from '../../services/route.info';
   styleUrls: ['./sidebar.component.sass']
 })
 export class SidebarComponent implements OnInit {
-  private menuItems: RouteInfo[];
-  private isMobileMenu: boolean;
+  menuItems: RouteInfo[];
+  isMobileMenu: boolean;
 
   constructor(private breakpointObserver: BreakpointObserver) {
   }
