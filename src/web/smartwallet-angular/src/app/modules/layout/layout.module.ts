@@ -6,6 +6,7 @@ import {NavigationModule} from '../navigation/navigation.module';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
 import {MatTooltipModule} from '@angular/material';
 import {TabsModule} from 'ngx-bootstrap/tabs';
+import {ChartsModule} from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {TabsModule} from 'ngx-bootstrap/tabs';
     NavigationModule,
     LayoutRoutingModule,
     MatTooltipModule,
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    ChartsModule
   ]
 })
 
