@@ -7,7 +7,7 @@ import {RouteInfo} from './route.info';
 export class RouteService {
   public static readonly routes: RouteInfo[] = [
       {path: '/dashboard', title: 'Dashboard', icon: 'dashboard', class: ''},
-      {path: '/user-profile', title: 'User Profile', icon: 'person', class: ''},
+      {path: '/wallet-settings', title: 'Wallet settings', icon: 'settings', class: ''},
       {path: '/table-list', title: 'Table List', icon: 'content_paste', class: ''},
       {path: '/typography', title: 'Typography', icon: 'library_books', class: ''},
       {path: '/icons', title: 'Icons', icon: 'bubble_chart', class: ''},

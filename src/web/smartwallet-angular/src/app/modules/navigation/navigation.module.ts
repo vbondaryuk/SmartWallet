@@ -14,7 +14,6 @@ import {BsDropdownModule} from 'ngx-bootstrap';
   imports: [
     CommonModule,
     RouterModule,
-
     BsDropdownModule.forRoot()
   ]
 })

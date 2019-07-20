@@ -1,15 +1,16 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
-import {LayoutComponent} from './components/layout/layout.component';
-import {DashboardComponent} from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   {
-    path: '', component: LayoutComponent, children: [
-      {path: 'dashboard', component: DashboardComponent}
-    ]
-  }];
+    path: 'dashboard',
+    loadChildren: () => import('src/app/modules/dashboard/dashboard.module').then(m => m.DashboardModule)
+  },
+  {
+    path: 'wallet-settings',
+    loadChildren: () => import('src/app/modules/configuration/configuration-routing.module').then(m => m.ConfigurationRoutingModule)
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
