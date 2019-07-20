@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: 'wallet-settings',
-    loadChildren: () => import('src/app/modules/configuration/configuration-routing.module').then(m => m.ConfigurationRoutingModule)
+    loadChildren: () => import('src/app/modules/configuration/configuration.module').then(m => m.ConfigurationModule)
   }
 ];
 
