@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -9,6 +9,7 @@ import {JwtInterceptor} from './interceptors/jwt.interceptor';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LayoutComponent} from './modules/layout/components/layout/layout.component';
 import {NavigationModule} from './modules/navigation/navigation.module';
+import {AppConfig, initializeAppConfig} from './shared/services/app.config';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,12 @@ import {NavigationModule} from './modules/navigation/navigation.module';
     NavigationModule
   ],
   providers: [
+    AppConfig,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeAppConfig,
+      deps: [AppConfig], multi: true
+    },
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true}
   ],

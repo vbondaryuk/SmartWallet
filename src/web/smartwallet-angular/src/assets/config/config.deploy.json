@@ -1,0 +1,9 @@
+{
+  "env": {
+    "name": "DEV"
+  },
+  "apiServer": {
+    "authentication": "#{authServer}",
+    "smartwallet": "#{apiServer}"
+  }
+}

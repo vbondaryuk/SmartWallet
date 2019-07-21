@@ -4,24 +4,24 @@ import {BehaviorSubject} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 import {UserRegistration} from '../models/user.registration';
-import {environment} from '../../../environments/environment';
 import {UserLogin} from '../models/user.login';
+import {AppConfig} from './app.config';
 
 @Injectable({providedIn: 'root'})
 export class AuthenticationService {
   private tokenSubject: BehaviorSubject<string>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private appconfig: AppConfig) {
     this.tokenSubject = new BehaviorSubject<string>(localStorage.getItem('jwt_token'));
   }
 
   public login(userCredential: UserLogin) {
-    return this.http.post<any>(`${environment.apiUri}/auth/authenticate`, userCredential)
+    return this.http.post<any>(`${this.appconfig.settings.apiServer.authentication}/auth/authenticate`, userCredential)
       .pipe(map(this.authResponseMap));
   }
 
   public register(userRegistration: UserRegistration) {
-    return this.http.post<any>(`${environment.apiUri}/auth/register`, userRegistration)
+    return this.http.post<any>(`${this.appconfig.settings.apiServer.authentication}/auth/register`, userRegistration)
       .pipe(map(this.authResponseMap));
   }
 
