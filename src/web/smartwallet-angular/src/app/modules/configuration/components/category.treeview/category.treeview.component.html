@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header card-header-danger">
+    <h4 class="card-title ">Categories</h4>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+        <mat-tree-node *matTreeNodeDef="let node" class="border-top"  fxLayout='row'>
+          <div fxFlex>
+            <span *ngFor="let i of array(treeControl.getLevel(node))" class="ml-4"></span>
+            <span>{{node.item}} </span>
+          </div>
+          <div fxFlex>{{node.item}} lhklkblhjblhjblhbljhb ljhblhbkjh ljhblkh ljhb lhk ljh lhk ljh ;hk ;h</div>
+          <div fxFlex>{{node.item}}</div>
+        </mat-tree-node>
+
+        <mat-tree-node *matTreeNodeDef="let node; when: hasChild" class="border-top" fxLayout='row'>
+          <div fxFlex>
+            <span *ngFor="let i of array(treeControl.getLevel(node))" class="ml-4"></span>
+            <a matTreeNodeToggle class="mat-icon-rtl-mirror" href="javascript:void(0)"
+               (click)="loadChildren(node)">
+              <i class="material-icons">{{treeControl.isExpanded(node) ? 'keyboard_arrow_down' : 'keyboard_arrow_right'}}</i>
+              <div class="ripple-container"></div>
+            </a>
+            <span> {{node.item}}</span>
+          </div>
+          <div fxFlex>{{node.item}}</div>
+          <div fxFlex>{{node.item}}</div>
+        </mat-tree-node>
+      </mat-tree>
+    </div>
+  </div>
+</div>
