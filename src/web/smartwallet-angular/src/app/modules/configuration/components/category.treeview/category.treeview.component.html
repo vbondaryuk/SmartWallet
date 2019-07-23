@@ -5,27 +5,51 @@
   <div class="card-body">
     <div class="table-responsive">
       <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
-        <mat-tree-node *matTreeNodeDef="let node" class="border-top"  fxLayout='row'>
-          <div fxFlex>
-            <span *ngFor="let i of array(treeControl.getLevel(node))" class="ml-4"></span>
-            <span>{{node.item}} </span>
+        <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding class="border-top"  fxLayout='row'>
+          <div fxFlex="40%" fxFlex.lt-md="80%">
+            <span class="ml-4"></span>
+            <button mat-raised-button type="button" matTooltip="Add subcategory" [matTooltipPosition]="'above'"
+                    class="btn btn-success btn-link btn-sm btn-just-icon">
+              <i class="material-icons">add</i>
+            </button>
+            <button mat-raised-button type="button" matTooltip="Edit category" [matTooltipPosition]="'above'"
+                    class="btn btn-primary btn-link btn-sm btn-just-icon">
+              <i class="material-icons">edit</i>
+            </button>
+            <button mat-raised-button type="button" matTooltip="Remove category" [matTooltipPosition]="'above'"
+                    class="btn btn-danger btn-link btn-sm btn-just-icon">
+              <i class="material-icons">close</i>
+            </button>
+            <span class="ml-4"></span>
+            <span>{{node.node.Name}} </span>
           </div>
-          <div fxFlex>{{node.item}} lhklkblhjblhjblhbljhb ljhblhbkjh ljhblkh ljhb lhk ljh lhk ljh ;hk ;h</div>
-          <div fxFlex>{{node.item}}</div>
+          <div fxFlex="40%" fxHide.lt-md="true">{{node.node.Description}}</div>
+          <div fxFlex="20%" fxLayoutAlign="center">{{node.node.Budget}}</div>
         </mat-tree-node>
 
-        <mat-tree-node *matTreeNodeDef="let node; when: hasChild" class="border-top" fxLayout='row'>
-          <div fxFlex>
-            <span *ngFor="let i of array(treeControl.getLevel(node))" class="ml-4"></span>
-            <a matTreeNodeToggle class="mat-icon-rtl-mirror" href="javascript:void(0)"
-               (click)="loadChildren(node)">
+        <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding class="border-top" fxLayout='row'>
+          <div fxFlex="40%" fxFlex.lt-md="80%">
+<!--            <span class="ml-4"></span>-->
+            <a matTreeNodeToggle href="javascript:void(0)">
               <i class="material-icons">{{treeControl.isExpanded(node) ? 'keyboard_arrow_down' : 'keyboard_arrow_right'}}</i>
-              <div class="ripple-container"></div>
             </a>
-            <span> {{node.item}}</span>
+            <button mat-raised-button type="button" matTooltip="Add subcategory" [matTooltipPosition]="'above'"
+                    class="btn btn-success btn-link btn-sm btn-just-icon">
+              <i class="material-icons">add</i>
+            </button>
+            <button mat-raised-button type="button" matTooltip="Edit category" [matTooltipPosition]="'above'"
+                    class="btn btn-primary btn-link btn-sm btn-just-icon">
+              <i class="material-icons">edit</i>
+            </button>
+            <button mat-raised-button type="button" matTooltip="Remove category" [matTooltipPosition]="'above'"
+                    class="btn btn-danger btn-link btn-sm btn-just-icon">
+              <i class="material-icons">close</i>
+            </button>
+            <span class="ml-4"></span>
+            <span>{{node.node.Name}}</span>
           </div>
-          <div fxFlex>{{node.item}}</div>
-          <div fxFlex>{{node.item}}</div>
+          <div fxFlex="40%" fxHide.lt-md="true">{{node.node.Description}}</div>
+          <div fxFlex="20%" fxLayoutAlign="center">{{node.node.Budget}}</div>
         </mat-tree-node>
       </mat-tree>
     </div>
