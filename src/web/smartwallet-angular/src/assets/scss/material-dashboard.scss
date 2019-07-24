@@ -57,3 +57,16 @@
  @import "core/responsive";
 
 @import "core/angular-modal.scss";
+
+.card .card-body {
+  @media screen and (max-width: 959px){
+    padding: 10px;
+  }
+}
+
+.container-fluid{
+  @media screen and (max-width: 959px){
+    padding: 5px;
+  }
+}
+

@@ -9,6 +9,7 @@ import {MatSelectModule} from '@angular/material';
 import {SharedModule} from '../../shared/shared.module';
 import {CategoryTreeViewComponent} from './components/category.treeview/category.treeview.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {CategoriesModule} from '../categories/categories.module';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatTreeModule,
     MatIconModule,
     FlexLayoutModule,
-    MatTooltipModule
+    MatTooltipModule,
+    CategoriesModule
   ]
 })
 export class ConfigurationModule {

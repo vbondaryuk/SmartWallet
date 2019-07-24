@@ -1,0 +1,68 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card">
+        <div class="card-header card-header-danger">
+          <h4 class="card-title ">Categories</h4>
+        </div>
+        <div class="card-body table-responsive">
+          <table mat-table [dataSource]="categories" class="table table-hover">
+
+            <ng-container matColumnDef="name">
+              <th mat-header-cell fxFlex="20%" fxFlex.lt-sm="60%" *matHeaderCellDef> Name </th>
+              <td mat-cell fxFlex="20%" fxFlex.lt-sm="80%" *matCellDef="let element"> {{element.Name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="progress">
+              <th mat-header-cell fxFlex="60%" fxHide.lt-sm="true" *matHeaderCellDef> Progress </th>
+              <td mat-cell fxFlex="60%" fxHide.lt-sm="true" *matCellDef="let element">
+                <progressbar max="{{element.Budget}}" [value]="progressBarValue(element)" type="{{progressBarColor(element)}}"></progressbar>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="budget">
+              <th mat-header-cell fxFlex="10%" fxFlex.lt-sm="20%" *matHeaderCellDef> Budget </th>
+              <td mat-cell fxFlex="10%" fxFlex.lt-sm="20%" *matCellDef="let element"> {{element.Budget}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="left">
+              <th mat-header-cell fxFlex="10%" fxFlex.lt-sm="20%" *matHeaderCellDef> Left </th>
+              <td mat-cell fxFlex="10%" fxFlex.lt-sm="20%" *matCellDef="let element" [style.color]="getLeftColor(element)"> {{element.Left}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <div class="table-responsive">
+
+
+            <!--              <table class="table table-hover">-->
+            <!--                <thead class="text-warning">-->
+            <!--                <th fxFlex="20%">Name</th>-->
+            <!--                <th fxFlex="60%">Percentage</th>-->
+            <!--                <th fxFlex="10%">Budget</th>-->
+            <!--                <th fxFlex="10%">Left</th>-->
+            <!--                </thead>-->
+            <!--                <tbody>-->
+            <!--              </table>-->
+            <!--              <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">-->
+            <!--                <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding class="border-top"  fxLayout='row'>-->
+            <!--                  <div fxFlex="20%" fxFlex.lt-md="80%">-->
+            <!--                    <span>{{node.node.Name}} </span>-->
+            <!--                  </div>-->
+            <!--                  <div fxFlex="40%" fxHide.lt-md="true">-->
+            <!--                    -->
+            <!--                  </div>-->
+            <!--                  <div fxFlex="20%" fxLayoutAlign="center">{{node.node.Budget}}</div>-->
+            <!--                </mat-tree-node>-->
+            <!--              </mat-tree>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

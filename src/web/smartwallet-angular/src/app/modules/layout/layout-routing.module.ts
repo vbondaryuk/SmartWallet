@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'wallet-settings',
     loadChildren: () => import('src/app/modules/configuration/configuration.module').then(m => m.ConfigurationModule)
+  },
+  {
+    path: 'categories',
+    loadChildren: () => import('src/app/modules/categories/categories.module').then(m => m.CategoriesModule)
   }
 ];
 
